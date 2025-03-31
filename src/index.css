@@ -1,0 +1,97 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --bg-color: linear-gradient(rgba(52, 165, 137, 0.427), #ffffff);
+  --title-color: rgb(51, 101, 88);
+  --button-bg: rgba(52, 165, 137, 0.603);
+  --button-bg-hover: rgba(52, 165, 137, 0.893);
+
+  --shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  --border: 2px solid rgb(81, 81, 81);
+}
+
+.theme-green {
+  --bg-color: linear-gradient(rgba(52, 165, 137, 0.427), #ffffff);
+  --title-color: rgb(51, 101, 88);
+  --button-bg: rgba(52, 165, 137, 0.603);
+  --button-bg-hover: rgba(52, 165, 137, 0.893);
+}
+
+.theme-blue {
+  --bg-color: linear-gradient(rgba(70, 130, 180, 0.4), #ffffff);
+  --title-color: rgb(28, 78, 128);
+  --button-bg: rgba(70, 130, 180, 0.6);
+  --button-bg-hover: rgba(70, 130, 180, 0.9);
+}
+
+.theme-orange {
+  --bg-color: linear-gradient(rgba(255, 165, 0, 0.4), #ffffff);
+  --title-color: rgb(204, 102, 0);
+  --button-bg: rgba(255, 165, 0, 0.6);
+  --button-bg-hover: rgba(255, 165, 0, 0.9);
+}
+
+.theme-gray {
+  --bg-color: linear-gradient(rgba(128, 128, 128, 0.5), #ffffff);
+  --title-color: rgb(60, 60, 60);
+  --button-bg: rgba(128, 128, 128, 0.7);
+  --button-bg-hover: rgba(128, 128, 128, 0.9);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  max-height: max-content;
+  border: none;
+
+  display: block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: var(--button-bg);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+button:hover {
+  background-color: var(--button-bg-hover);
+}
+
+button:active {
+  position: relative;
+  top: 1px;
+}
+
+input {
+  font-family: inherit;
+  width: 100%;
+  padding: 8px;
+  border: var(--border);
+  border-radius: 5px;
+  outline: transparent;
+  background-color: transparent;
+}
