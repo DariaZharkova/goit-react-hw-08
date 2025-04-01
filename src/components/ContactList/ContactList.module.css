@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  width: 350px;
+  border: var(--border);
+  border-radius: 5px;
+  padding: 4px 8px;
+  box-shadow: var(--shadow);
+}

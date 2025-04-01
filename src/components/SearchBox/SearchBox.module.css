@@ -1,0 +1,8 @@
+.wrapper {
+  max-width: 350px;
+  margin-bottom: 20px;
+}
+
+.input {
+  box-shadow: var(--shadow);
+}
