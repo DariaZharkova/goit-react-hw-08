@@ -7,6 +7,7 @@ import {
   selectModalType,
 } from '../../redux/modal/selectors';
 import { deleteContact } from '../../redux/contacts/operations';
+import { logout } from '../../redux/auth/operations';
 
 const customStyles = {
   overlay: {
