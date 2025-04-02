@@ -1,14 +1,22 @@
 import { useDispatch } from 'react-redux';
 import { FaUser } from 'react-icons/fa';
 import { FaPhone } from 'react-icons/fa6';
-import { deleteContact } from '../../redux/contacts/operations';
+// import { deleteContact } from '../../redux/contacts/operations';
+import { openModal } from '../../redux/modal/slice';
 import css from './Contact.module.css';
 
 export default function Contact({ item }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteContact(item.id));
+    dispatch(
+      openModal({
+        modalType: 'confirmDelete',
+        modalData: {
+          contactId: item.id,
+        },
+      })
+    );
   };
 
   return (

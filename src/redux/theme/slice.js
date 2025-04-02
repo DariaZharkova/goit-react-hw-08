@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const themes = ['green', 'blue', 'orange', 'gray'];
 
 const slice = createSlice({
-  name: 'locale',
+  name: 'theme',
   initialState: {
     theme: 'green',
   },
@@ -17,6 +17,5 @@ const slice = createSlice({
 });
 
 export const { changeTheme } = slice.actions;
-
 
 export default slice.reducer;
