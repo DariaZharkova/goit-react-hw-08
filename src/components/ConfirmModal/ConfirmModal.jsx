@@ -7,7 +7,7 @@ import {
   selectModalType,
 } from '../../redux/modal/selectors';
 import { deleteContact } from '../../redux/contacts/operations';
-import { logout } from '../../redux/auth/operations';
+import { logOut } from '../../redux/auth/operations';
 
 const customStyles = {
   overlay: {
@@ -37,7 +37,7 @@ export default function ConfirmModal() {
     }
 
     if (modalType === 'confirmLogout') {
-      dispatch(logout());
+      dispatch(logOut());
     }
 
     dispatch(closeModal());
