@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import { openModal } from '../../redux/modal/slice';
+import css from './UserMenu.module.css';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
@@ -15,9 +16,9 @@ export default function UserMenu() {
   };
 
   return (
-    <div>
+    <div className={css.wrap}>
       <p>Welcome, {user.name}</p>
-      <button type="button" onClick={handleLogout}>
+      <button className={css.button} type="button" onClick={handleLogout}>
         Logout
       </button>
     </div>
