@@ -5,13 +5,13 @@ const themes = ['green', 'blue', 'orange', 'gray'];
 const slice = createSlice({
   name: 'theme',
   initialState: {
-    theme: 'green',
+    value: 'green',
   },
   reducers: {
     changeTheme(state) {
-      const currentIdx = themes.indexOf(state.theme);
+      const currentIdx = themes.indexOf(state.value);
       const nextIdx = (currentIdx + 1) % themes.length;
-      state.theme = themes[nextIdx];
+      state.value = themes[nextIdx];
     },
   },
 });

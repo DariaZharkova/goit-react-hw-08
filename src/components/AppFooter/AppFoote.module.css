@@ -1,8 +1,17 @@
 .footer {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #2a363b;
   text-align: center;
   font-size: 14зч;
   color: #777;
   padding: 16px;
   margin-top: auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    font-size: 12px;
+    margin-top: 20px;
+    flex-shrink: 1;
+  }
 }

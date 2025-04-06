@@ -1,0 +1,52 @@
+.main {
+  display: flex;
+  gap: 48px;
+  flex: 1;
+  min-height: 0;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.formWrap {
+  width: 100%;
+  max-width: 400px;
+  min-width: 280px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--title-color);
+  margin-bottom: 20px;
+}
+
+.listWrap {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    overflow: hidden;
+    gap: 20px;
+  }
+
+  .formWrap,
+  .listWrap {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .formWrap {
+    min-width: unset;
+  }
+  .title {
+    font-size: 24px;
+  }
+}

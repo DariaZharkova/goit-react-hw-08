@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ContactForm from '../../components/ContactForm/ContactForm';
-import ContactList from '../../components/ContactList/ContactList';
-import SearchBox from '../../components/SearchBox/SearchBox';
 import { selectError, selectLoading } from '../../redux/contacts/selectors';
 import { fetchContacts } from '../../redux/contacts/operations';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import ContactForm from '../../components/ContactForm/ContactForm';
+import ContactList from '../../components/ContactList/ContactList';
+import SearchBox from '../../components/SearchBox/SearchBox';
+import css from './ContactsPage.module.css';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -20,13 +21,17 @@ export default function ContactsPage() {
   }, [isLoggedIn, dispatch]);
 
   return (
-    <main>
-      <h1>Contacts Page</h1>
-      <ContactForm />
-      <SearchBox />
-      {isLoading && !error && <b>Request in progress...</b>}
-      {!isLoading && error && <b>{error}</b>}
-      <ContactList />
+    <main className={css.main}>
+      <div className={css.formWrap}>
+        <h1 className={css.title}>Let's save a new friend!</h1>
+        <ContactForm />
+      </div>
+      <div className={css.listWrap}>
+        <SearchBox />
+        {isLoading && !error && <b>Request in progress...</b>}
+        {!isLoading && error && <b>{error}</b>}
+        <ContactList />
+      </div>
     </main>
   );
 }

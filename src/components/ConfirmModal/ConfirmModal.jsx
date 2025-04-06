@@ -6,12 +6,14 @@ import {
   selectModalData,
   selectModalType,
 } from '../../redux/modal/selectors';
+import { selectTheme } from '../../redux/theme/selectors';
 import { deleteContact } from '../../redux/contacts/operations';
 import { logOut } from '../../redux/auth/operations';
+import css from './ConfirmModal.module.css';
 
 const customStyles = {
   overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   content: {
     top: '50%',
@@ -20,6 +22,10 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+
+    padding: '24px 32px',
+    width: '320px',
+    borderRadius: '10px',
   },
 };
 
@@ -30,6 +36,7 @@ export default function ConfirmModal() {
   const isOpen = useSelector(selectIsModalOpen);
   const modalType = useSelector(selectModalType);
   const modalData = useSelector(selectModalData);
+  const theme = useSelector(selectTheme);
 
   const handleConfirm = () => {
     if (modalType === 'confirmDelete') {
@@ -55,17 +62,29 @@ export default function ConfirmModal() {
       contentLabel="Confirm Modal"
     >
       {modalType === 'confirmDelete' && (
-        <p>Are you sure you want to delete this contact?</p>
+        <p className={css.text}>
+          Are you sure you want to delete this contact?
+        </p>
       )}
       {modalType === 'confirmLogout' && (
-        <p>Are you sure you want to log out?</p>
+        <p className={css.text}>Are you sure you want to log out?</p>
       )}
-      <button type="button" onClick={handleConfirm}>
-        Confirm
-      </button>
-      <button type="button" onClick={handleClose}>
-        Cancel
-      </button>
+      <div className={css.buttons}>
+        <button
+          className={`${css.btn} ${css.confirm}`}
+          type="button"
+          onClick={handleConfirm}
+        >
+          Confirm
+        </button>
+        <button
+          className={`${css.btn} ${css.cancel}`}
+          type="button"
+          onClick={handleClose}
+        >
+          Cancel
+        </button>
+      </div>
     </Modal>
   );
 }
