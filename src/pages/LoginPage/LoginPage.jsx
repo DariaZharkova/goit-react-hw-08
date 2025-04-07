@@ -1,10 +1,21 @@
+import { Link } from 'react-router-dom';
+import image from '../../assets/img_login_page.svg';
 import LoginForm from '../../components/LoginForm/LoginForm';
+import AuthLayout from '../../components/AuthLayout/AuthLayout';
 
 export default function LoginPage() {
   return (
-    <main>
-      <h1>Login Page</h1>
+    <AuthLayout
+      image={image}
+      alt={'some image'}
+      title={'Happy to see you! Please log in to access your contacts.'}
+      bottomText={
+        <>
+          New here? <Link to="/register">Register</Link> now!
+        </>
+      }
+    >
       <LoginForm />
-    </main>
+    </AuthLayout>
   );
 }

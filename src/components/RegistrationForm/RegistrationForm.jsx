@@ -1,8 +1,8 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
+import BaseForm from '../BaseForm/BaseForm';
 
 const registerSchema = Yup.object().shape({
   name: Yup.string()
@@ -23,7 +23,31 @@ export default function RegistrationForm() {
   const passwordFieldId = useId();
 
   return (
-    <Formik
+    <BaseForm
+      initialValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      validationSchema={registerSchema}
+      onSubmit={values => dispatch(register(values))}
+      fields={[
+        { name: 'name', label: 'Name', type: 'text', id: nameFieldId },
+        { name: 'email', label: 'Email', type: 'text', id: emailFieldId },
+        {
+          name: 'password',
+          label: 'Password',
+          type: 'text',
+          id: passwordFieldId,
+        },
+      ]}
+      buttonText="Register"
+    />
+  );
+}
+
+{
+  /* <Formik
       initialValues={{
         name: '',
         email: '',
@@ -39,23 +63,22 @@ export default function RegistrationForm() {
         <div>
           <label htmlFor={nameFieldId}>Name</label>
           <Field type="text" name="name" id={nameFieldId} />
-          <ErrorMessage name="name" />
+          <ErrorMessage name="name" component="span" />
         </div>
 
         <div>
           <label htmlFor={emailFieldId}>Email</label>
           <Field type="text" name="email" id={emailFieldId} />
-          <ErrorMessage name="email" />
+          <ErrorMessage name="email" component="span" />
         </div>
 
         <div>
           <label htmlFor={passwordFieldId}>Password</label>
           <Field type="text" name="password" id={passwordFieldId} />
-          <ErrorMessage name="password" />
+          <ErrorMessage name="password" component="span" />
         </div>
 
         <button type="submit">Register</button>
       </Form>
-    </Formik>
-  );
+    </Formik> */
 }

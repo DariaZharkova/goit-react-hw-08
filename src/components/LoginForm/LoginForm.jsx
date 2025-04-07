@@ -1,8 +1,8 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/operations';
+import BaseForm from '../BaseForm/BaseForm';
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email().required('This is a required field'),
@@ -16,8 +16,31 @@ export default function LoginForm() {
   const dispatch = useDispatch();
   const emailFieldId = useId();
   const passwordFieldId = useId();
+
   return (
-    <Formik
+    <BaseForm
+      initialValues={{
+        email: '',
+        password: '',
+      }}
+      validationSchema={loginSchema}
+      onSubmit={values => dispatch(login(values))}
+      fields={[
+        { name: 'email', label: 'Email', type: 'text', id: emailFieldId },
+        {
+          name: 'password',
+          label: 'Password',
+          type: 'text',
+          id: passwordFieldId,
+        },
+      ]}
+      buttonText="Login"
+    />
+  );
+}
+
+{
+  /* <Formik
       initialValues={{
         email: '',
         password: '',
@@ -28,21 +51,26 @@ export default function LoginForm() {
         actions.resetForm();
       }}
     >
-      <Form>
-        <div>
+      <Form className={css.form}>
+        <div className={css.wrap}>
           <label htmlFor={emailFieldId}>Email</label>
           <Field type="text" name="email" id={emailFieldId} />
-          <ErrorMessage name="email" />
+          <ErrorMessage className={css.error} name="email" component="span" />
         </div>
 
-        <div>
+        <div className={css.wrap}>
           <label htmlFor={passwordFieldId}>Password</label>
           <Field type="text" name="password" id={passwordFieldId} />
-          <ErrorMessage name="password" />
+          <ErrorMessage
+            className={css.error}
+            name="password"
+            component="span"
+          />
         </div>
 
-        <button type="submit">Login</button>
+        <button className={css.btn} type="submit">
+          Login
+        </button>
       </Form>
-    </Formik>
-  );
+    </Formik> */
 }
