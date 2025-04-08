@@ -14,6 +14,7 @@ import css from './ConfirmModal.module.css';
 const customStyles = {
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: '10',
   },
   content: {
     top: '50%',

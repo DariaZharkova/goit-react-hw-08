@@ -6,6 +6,7 @@ import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactList from '../../components/ContactList/ContactList';
 import SearchBox from '../../components/SearchBox/SearchBox';
+import image from '../../assets/img_contacts_page.svg';
 import css from './ContactsPage.module.css';
 
 export default function ContactsPage() {
@@ -25,6 +26,11 @@ export default function ContactsPage() {
       <div className={css.formWrap}>
         <h1 className={css.title}>Let's save a new friend!</h1>
         <ContactForm />
+        <img
+          className={css.image}
+          src={image}
+          alt="Girl with phone illustration"
+        />
       </div>
       <div className={css.listWrap}>
         <SearchBox />

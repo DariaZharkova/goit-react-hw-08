@@ -10,6 +10,7 @@ import LoginPage from '../pages/LoginPage/LoginPage';
 import ContactsPage from '../pages/ContactsPage/ContactsPage';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ export default function App() {
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>
   );

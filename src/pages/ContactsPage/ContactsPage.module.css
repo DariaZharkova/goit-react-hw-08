@@ -1,6 +1,6 @@
 .main {
   display: flex;
-  gap: 48px;
+  gap: 68px;
   flex: 1;
   min-height: 0;
   margin-bottom: 20px;
@@ -8,9 +8,12 @@
 }
 
 .formWrap {
+  position: relative;
   width: 100%;
   max-width: 400px;
   min-width: 280px;
+  z-index: 1;
+  padding-bottom: 60px;
 }
 
 .title {
@@ -21,8 +24,26 @@
   margin-bottom: 20px;
 }
 
+.image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 500px;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .listWrap {
   width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 32px;
+  }
+  .image {
+    width: 430px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -39,6 +60,10 @@
 
   .title {
     font-size: 28px;
+  }
+
+  .image {
+    display: none;
   }
 }
 

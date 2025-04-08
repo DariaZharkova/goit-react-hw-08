@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { FiArrowRight } from 'react-icons/fi';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { Link } from 'react-router-dom';
 import image from '../../assets/img_home_page.svg';
 import css from './HomePage.module.css';
-import { Link } from 'react-router-dom';
 
 export default function HomePage() {
   const isLoggedIn = useSelector(selectIsLoggedIn);

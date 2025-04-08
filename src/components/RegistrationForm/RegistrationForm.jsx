@@ -37,7 +37,7 @@ export default function RegistrationForm() {
         {
           name: 'password',
           label: 'Password',
-          type: 'text',
+          type: 'password',
           id: passwordFieldId,
         },
       ]}

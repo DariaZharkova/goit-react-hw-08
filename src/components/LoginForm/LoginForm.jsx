@@ -30,7 +30,7 @@ export default function LoginForm() {
         {
           name: 'password',
           label: 'Password',
-          type: 'text',
+          type: 'password',
           id: passwordFieldId,
         },
       ]}
