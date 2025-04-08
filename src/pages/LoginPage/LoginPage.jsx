@@ -7,7 +7,9 @@ export default function LoginPage() {
   return (
     <AuthLayout
       image={image}
-      alt={'some image'}
+      alt={
+        'Login screen on mobile device showing email and password input fields'
+      }
       title={'Happy to see you! Please log in to access your contacts.'}
       bottomText={
         <>

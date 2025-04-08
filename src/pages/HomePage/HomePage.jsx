@@ -11,7 +11,10 @@ export default function HomePage() {
   return (
     <main className={css.main}>
       <div className={css.imageWrap}>
-        <img src={image} alt="" />
+        <img
+          src={image}
+          alt="Illustration of a contact management interface with add contact options"
+        />
       </div>
       <div className={css.content}>
         <h1 className={css.title}>Welcome to Your Contacts Book!</h1>

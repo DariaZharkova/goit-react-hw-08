@@ -7,7 +7,9 @@ export default function RegistrationPage() {
   return (
     <AuthLayout
       image={image}
-      alt={'some image'}
+      alt={
+        'User registration interface with form fields and mobile device interaction'
+      }
       title={
         "Let's get started! Create your account to start building your personal contact book."
       }
