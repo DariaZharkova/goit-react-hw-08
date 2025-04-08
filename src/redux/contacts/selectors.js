@@ -7,6 +7,8 @@ export const selectLoading = state => state.contacts.isLoading;
 
 export const selectError = state => state.contacts.error;
 
+export const selectHasFetched = state => state.contacts.hasFetched;
+
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
   (contacts, nameFilter) => {

@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import { useId } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../../redux/auth/operations';
+import { logIn } from '../../redux/auth/operations';
 import BaseForm from '../BaseForm/BaseForm';
 
 const loginSchema = Yup.object().shape({
@@ -24,7 +24,7 @@ export default function LoginForm() {
         password: '',
       }}
       validationSchema={loginSchema}
-      onSubmit={values => dispatch(login(values))}
+      onSubmit={values => dispatch(logIn(values))}
       fields={[
         { name: 'email', label: 'Email', type: 'text', id: emailFieldId },
         {

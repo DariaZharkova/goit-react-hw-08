@@ -2,7 +2,6 @@
   display: flex;
   gap: 68px;
   flex: 1;
-  min-height: 0;
   margin-bottom: 20px;
   width: 100%;
 }
@@ -37,6 +36,18 @@
   width: 100%;
 }
 
+.textWrap {
+  width: 100%;
+  margin: auto 0;
+  font-size: 32px;
+  text-align: center;
+  color: var(--title-color);
+}
+
+.text {
+  margin-bottom: 20px;
+}
+
 @media (max-width: 1024px) {
   .title {
     font-size: 32px;
@@ -56,9 +67,11 @@
   .formWrap,
   .listWrap {
     max-width: 100%;
+    padding: 0;
   }
 
-  .title {
+  .title,
+  .textWrap {
     font-size: 28px;
   }
 
@@ -71,7 +84,8 @@
   .formWrap {
     min-width: unset;
   }
-  .title {
+  .title,
+  .textWrap {
     font-size: 24px;
   }
 }
