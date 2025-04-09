@@ -1,6 +1,7 @@
 import { useEffect, Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
 import { refreshUser } from '../../redux/auth/operations';
 import { selectIsRefreshing } from '../../redux/auth/selectors';
 import { selectTheme } from '../../redux/theme/selectors';
@@ -69,6 +70,7 @@ export default function App() {
       </Suspense>
       <AppFooter />
       <ConfirmModal />
+      <Toaster position="top-center" />
     </div>
   );
 }

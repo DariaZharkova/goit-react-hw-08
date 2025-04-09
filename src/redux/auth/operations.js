@@ -23,7 +23,6 @@ export const register = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
-      console.error('Registration error:', error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -37,7 +36,6 @@ export const logIn = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
-      console.error('Registration error:', error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -48,7 +46,6 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     await axios.post('/users/logout');
     clearAuthHeader();
   } catch (error) {
-    console.error('Registration error:', error.message);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
