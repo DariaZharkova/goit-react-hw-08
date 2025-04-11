@@ -1,12 +1,12 @@
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 import { closeModal } from '../../redux/modal/slice';
 import {
   selectIsModalOpen,
   selectModalData,
   selectModalType,
 } from '../../redux/modal/selectors';
-import { selectTheme } from '../../redux/theme/selectors';
 import { deleteContact } from '../../redux/contacts/operations';
 import { logOut } from '../../redux/auth/operations';
 import css from './ConfirmModal.module.css';
@@ -37,18 +37,22 @@ export default function ConfirmModal() {
   const isOpen = useSelector(selectIsModalOpen);
   const modalType = useSelector(selectModalType);
   const modalData = useSelector(selectModalData);
-  const theme = useSelector(selectTheme);
 
-  const handleConfirm = () => {
-    if (modalType === 'confirmDelete') {
-      dispatch(deleteContact(modalData.contactId));
+  const handleConfirm = async () => {
+    try {
+      if (modalType === 'confirmDelete') {
+        await dispatch(deleteContact(modalData.contactId)).unwrap();
+        toast.success('Contact deleted successfully!');
+      }
+
+      if (modalType === 'confirmLogout') {
+        await dispatch(logOut()).unwrap();
+      }
+    } catch (error) {
+      toast.error('Failed to delete contact');
+    } finally {
+      dispatch(closeModal());
     }
-
-    if (modalType === 'confirmLogout') {
-      dispatch(logOut());
-    }
-
-    dispatch(closeModal());
   };
 
   const handleClose = () => {

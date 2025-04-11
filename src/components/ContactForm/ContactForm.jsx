@@ -23,7 +23,7 @@ export default function ContactForm() {
   const nameFieldId = useId();
   const numberFieldId = useId();
 
-  const handleSubmit = values => {
+  const handleSubmit = async values => {
     const existingContact = contacts.find(
       contact =>
         contact.name.toLowerCase() === values.name.toLowerCase() ||
@@ -35,7 +35,12 @@ export default function ContactForm() {
       return;
     }
 
-    dispatch(addContact(values));
+    try {
+      await dispatch(addContact(values)).unwrap();
+      toast.success('Contact added successfully!');
+    } catch (error) {
+      toast.error('Failed to add contact');
+    }
   };
 
   return (
