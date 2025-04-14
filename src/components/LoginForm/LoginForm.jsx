@@ -38,39 +38,3 @@ export default function LoginForm() {
     />
   );
 }
-
-{
-  /* <Formik
-      initialValues={{
-        email: '',
-        password: '',
-      }}
-      validationSchema={loginSchema}
-      onSubmit={(values, actions) => {
-        dispatch(login({ ...values }));
-        actions.resetForm();
-      }}
-    >
-      <Form className={css.form}>
-        <div className={css.wrap}>
-          <label htmlFor={emailFieldId}>Email</label>
-          <Field type="text" name="email" id={emailFieldId} />
-          <ErrorMessage className={css.error} name="email" component="span" />
-        </div>
-
-        <div className={css.wrap}>
-          <label htmlFor={passwordFieldId}>Password</label>
-          <Field type="text" name="password" id={passwordFieldId} />
-          <ErrorMessage
-            className={css.error}
-            name="password"
-            component="span"
-          />
-        </div>
-
-        <button className={css.btn} type="submit">
-          Login
-        </button>
-      </Form>
-    </Formik> */
-}
