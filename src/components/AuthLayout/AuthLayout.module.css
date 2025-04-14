@@ -22,12 +22,12 @@
   font-weight: 700;
   text-align: center;
   color: var(--title-color);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .text {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 @media (max-width: 768px) {

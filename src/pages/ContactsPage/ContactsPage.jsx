@@ -11,7 +11,8 @@ import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactList from '../../components/ContactList/ContactList';
 import SearchBox from '../../components/SearchBox/SearchBox';
-import image from '../../assets/img_contacts_page.svg';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Loader from '../../components/Loader/Loader';
 import css from './ContactsPage.module.css';
 
 export default function ContactsPage() {
@@ -33,16 +34,11 @@ export default function ContactsPage() {
       <div className={css.formWrap}>
         <h1 className={css.title}>Let's save a new friend!</h1>
         <ContactForm />
-        <img
-          className={css.image}
-          src={image}
-          alt="Girl with phone illustration"
-        />
       </div>
 
-      {isLoading && !error && <b>Request in progress...</b>}
+      {isLoading && !error && <Loader />}
 
-      {!isLoading && error && <b>{error}</b>}
+      {!isLoading && error && <ErrorMessage message={error} />}
 
       {!isLoading && contacts.length > 0 && (
         <div className={css.listWrap}>

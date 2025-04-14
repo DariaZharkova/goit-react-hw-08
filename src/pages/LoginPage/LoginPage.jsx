@@ -1,9 +1,21 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import image from '../../assets/img_login_page.svg';
-import LoginForm from '../../components/LoginForm/LoginForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearAuthError } from '../../redux/auth/slice';
+import { selectError } from '../../redux/auth/selectors';
 import AuthLayout from '../../components/AuthLayout/AuthLayout';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import image from '../../assets/img_login_page.svg';
 
 export default function LoginPage() {
+  const dispatch = useDispatch();
+  const error = useSelector(selectError);
+
+  useEffect(() => {
+    dispatch(clearAuthError());
+  }, [dispatch]);
+
   return (
     <AuthLayout
       image={image}
@@ -18,6 +30,13 @@ export default function LoginPage() {
       }
     >
       <LoginForm />
+      {error && (
+        <ErrorMessage
+          message={
+            "We couldn't log you in. Please check your email and password."
+          }
+        />
+      )}
     </AuthLayout>
   );
 }

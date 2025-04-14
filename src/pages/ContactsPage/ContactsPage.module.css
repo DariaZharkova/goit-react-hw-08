@@ -7,12 +7,9 @@
 }
 
 .formWrap {
-  position: relative;
   width: 100%;
   max-width: 400px;
   min-width: 280px;
-  z-index: 1;
-  padding-bottom: 60px;
 }
 
 .title {
@@ -21,15 +18,6 @@
   text-align: center;
   color: var(--title-color);
   margin-bottom: 20px;
-}
-
-.image {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 500px;
-  z-index: 0;
-  pointer-events: none;
 }
 
 .listWrap {
@@ -67,16 +55,11 @@
   .formWrap,
   .listWrap {
     max-width: 100%;
-    padding: 0;
   }
 
   .title,
   .textWrap {
     font-size: 28px;
-  }
-
-  .image {
-    display: none;
   }
 }
 

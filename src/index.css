@@ -43,12 +43,12 @@
   --link-active: rgb(204, 102, 0);
 }
 
-.theme-gray {
-  --bg-color: linear-gradient(rgba(128, 128, 128, 0.5), #ffffff);
-  --title-color: rgb(60, 60, 60);
-  --button-bg: rgba(128, 128, 128, 0.7);
-  --button-bg-hover: rgba(128, 128, 128, 0.9);
-  --link-active: rgb(60, 60, 60);
+.theme-pink {
+  --bg-color: linear-gradient(rgba(240, 160, 180, 0.3), #fbeaec);
+  --title-color: rgb(160, 60, 85);
+  --button-bg: rgba(240, 140, 160, 0.6);
+  --button-bg-hover: rgba(240, 140, 160, 0.85);
+  --link-active: rgb(160, 60, 85);
 }
 
 body {

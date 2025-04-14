@@ -49,7 +49,6 @@ export default function ConfirmModal() {
         await dispatch(logOut()).unwrap();
       }
     } catch (error) {
-      toast.error('Failed to delete contact');
     } finally {
       dispatch(closeModal());
     }

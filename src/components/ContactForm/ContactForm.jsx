@@ -38,9 +38,7 @@ export default function ContactForm() {
     try {
       await dispatch(addContact(values)).unwrap();
       toast.success('Contact added successfully!');
-    } catch (error) {
-      toast.error('Failed to add contact');
-    }
+    } catch (error) {}
   };
 
   return (

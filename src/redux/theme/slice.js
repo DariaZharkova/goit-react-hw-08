@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const themes = ['green', 'blue', 'orange', 'gray'];
+const themes = ['green', 'blue', 'orange', 'pink'];
 
 const slice = createSlice({
   name: 'theme',

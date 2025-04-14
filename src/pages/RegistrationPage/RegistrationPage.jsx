@@ -1,9 +1,21 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearAuthError } from '../../redux/auth/slice';
+import { selectError } from '../../redux/auth/selectors';
 import AuthLayout from '../../components/AuthLayout/AuthLayout';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import image from '../../assets/img_register_page.svg';
 
 export default function RegistrationPage() {
+  const dispatch = useDispatch();
+  const error = useSelector(selectError);
+
+  useEffect(() => {
+    dispatch(clearAuthError());
+  }, [dispatch]);
+
   return (
     <AuthLayout
       image={image}
@@ -20,6 +32,13 @@ export default function RegistrationPage() {
       }
     >
       <RegistrationForm />
+      {error && (
+        <ErrorMessage
+          message={
+            'Registration failed. Please check your details and try again.'
+          }
+        />
+      )}
     </AuthLayout>
   );
 }
