@@ -6,6 +6,7 @@ export default function BaseForm({
   validationSchema,
   onSubmit,
   fields,
+  isLoading = false,
   buttonText,
 }) {
   return (
@@ -26,7 +27,7 @@ export default function BaseForm({
           </div>
         ))}
 
-        <button className={css.btn} type="submit">
+        <button className={css.btn} type="submit" disabled={isLoading}>
           {buttonText}
         </button>
       </Form>

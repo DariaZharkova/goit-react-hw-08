@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearAuthError } from '../../redux/auth/slice';
-import { selectError } from '../../redux/auth/selectors';
+import { selectError, selectIsLoading } from '../../redux/auth/selectors';
 import AuthLayout from '../../components/AuthLayout/AuthLayout';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
@@ -10,6 +10,7 @@ import image from '../../assets/img_register_page.svg';
 
 export default function RegistrationPage() {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
   useEffect(() => {
@@ -30,6 +31,7 @@ export default function RegistrationPage() {
           Already have an account? <Link to="/login">Log In</Link> here!
         </>
       }
+      isLoading={isLoading}
     >
       <RegistrationForm />
       {error && (

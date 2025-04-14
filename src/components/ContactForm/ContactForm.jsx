@@ -2,7 +2,10 @@ import { useEffect, useId } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
-import { selectContacts } from '../../redux/contacts/selectors';
+import {
+  selectContacts,
+  selectIsLoading,
+} from '../../redux/contacts/selectors';
 import { addContact } from '../../redux/contacts/operations';
 import BaseForm from '../BaseForm/BaseForm';
 
@@ -20,6 +23,7 @@ const contactSchema = Yup.object().shape({
 export default function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
   const nameFieldId = useId();
   const numberFieldId = useId();
 
@@ -53,7 +57,8 @@ export default function ContactForm() {
         { name: 'name', label: 'Name', type: 'text', id: nameFieldId },
         { name: 'number', label: 'Number', type: 'text', id: numberFieldId },
       ]}
-      buttonText="Add contact"
+      buttonText={'Add contact'}
+      isLoading={isLoading}
     />
   );
 }

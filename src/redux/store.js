@@ -14,7 +14,6 @@ import contactsReducer from './contacts/slice';
 import filtersReducer from './filters/slice';
 import authReducer from './auth/slice';
 import themeReducer from './theme/slice';
-import modalReducer from './modal/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -30,7 +29,6 @@ export const store = configureStore({
   reducer: {
     contacts: contactsReducer,
     filters: filtersReducer,
-    modal: modalReducer,
     auth: persistReducer(authPersistConfig, authReducer),
     theme: persistReducer(localePersistConfig, themeReducer),
   },

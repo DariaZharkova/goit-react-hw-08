@@ -4,7 +4,7 @@ import {
   selectContacts,
   selectError,
   selectHasFetched,
-  selectLoading,
+  selectIsLoading,
 } from '../../redux/contacts/selectors';
 import { fetchContacts } from '../../redux/contacts/operations';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
@@ -18,7 +18,7 @@ import css from './ContactsPage.module.css';
 export default function ContactsPage() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isLoading = useSelector(selectLoading);
+  const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const contacts = useSelector(selectContacts);
   const hasFetched = useSelector(selectHasFetched);
