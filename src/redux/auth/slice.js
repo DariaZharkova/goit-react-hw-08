@@ -36,6 +36,8 @@ const slice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isLoading = false;
+        state.error = null;
       })
       .addCase(register.rejected, handleRejected)
       .addCase(logIn.pending, handlePending)
@@ -43,9 +45,13 @@ const slice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isLoading = false;
+        state.error = null;
       })
       .addCase(logIn.rejected, handleRejected)
-      .addCase(logOut.pending, handlePending)
+      .addCase(logOut.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(logOut.fulfilled, state => {
         state.user = {
           name: null,
@@ -53,8 +59,12 @@ const slice = createSlice({
         };
         state.token = null;
         state.isLoggedIn = false;
+        state.isLoading = false;
+        state.error = null;
       })
-      .addCase(logOut.rejected, handleRejected)
+      .addCase(logOut.rejected, state => {
+        state.isLoading = false;
+      })
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })

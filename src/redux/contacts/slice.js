@@ -2,16 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './operations';
 import { logOut } from '../auth/operations';
 
-const handlePending = state => {
-  state.isLoading = true;
-  state.error = null;
-};
-
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
-
 const slice = createSlice({
   name: 'contacts',
   initialState: {
@@ -22,7 +12,10 @@ const slice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchContacts.pending, handlePending)
+      .addCase(fetchContacts.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -34,14 +27,20 @@ const slice = createSlice({
         state.error = action.payload;
         state.hasFetched = true;
       })
-      .addCase(addContact.pending, handlePending)
+      .addCase(addContact.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(addContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);
       })
-      .addCase(addContact.rejected, handleRejected)
-      .addCase(deleteContact.pending, handlePending)
+      .addCase(addContact.rejected, state => {
+        state.isLoading = false;
+      })
+      .addCase(deleteContact.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -49,7 +48,9 @@ const slice = createSlice({
           contact => contact.id !== action.payload.id
         );
       })
-      .addCase(deleteContact.rejected, handleRejected)
+      .addCase(deleteContact.rejected, state => {
+        state.isLoading = false;
+      })
       .addCase(logOut.fulfilled, state => {
         state.items = [];
         state.error = null;

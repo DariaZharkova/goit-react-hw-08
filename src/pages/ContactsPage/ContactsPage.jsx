@@ -38,7 +38,13 @@ export default function ContactsPage() {
 
       {isLoading && !error && <Loader />}
 
-      {!isLoading && error && <ErrorMessage message={error} />}
+      {!isLoading && error && (
+        <ErrorMessage
+          message={
+            "Oops! We couldn't load your contacts. Please try again later or check your connection."
+          }
+        />
+      )}
 
       {!isLoading && contacts.length > 0 && (
         <div className={css.listWrap}>

@@ -27,6 +27,7 @@ export default function Contact({ item }) {
       await dispatch(deleteContact(item.id)).unwrap();
       toast.success('Contact deleted successfully!');
     } catch (error) {
+      toast.error('Failed to delete contact');
     } finally {
       closeModal();
     }
