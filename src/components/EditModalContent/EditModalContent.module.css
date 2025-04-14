@@ -1,0 +1,35 @@
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--shadow);
+  transition: background-color 0.2s ease;
+}
+
+.confirm {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.confirm:hover {
+  background-color: #1b5e20;
+}
+
+.cancel {
+  background-color: #ddd;
+  color: #333;
+}
+
+.cancel:hover {
+  background-color: #bbb;
+}

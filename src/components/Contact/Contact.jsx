@@ -8,18 +8,20 @@ import BaseModal from '../BaseModal/BaseModal';
 import ConfirmModalContent from '../ConfirmModalContent/ConfirmModalContent';
 import css from './Contact.module.css';
 import { selectIsLoading } from '../../redux/contacts/selectors';
+import EditModalContent from '../EditModalContent/EditModalContent';
 
 export default function Contact({ item }) {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
+  const [editModalIsOpen, setEditModalIsOpen] = useState(false);
 
-  const openModal = () => {
-    setModalIsOpen(true);
+  const closeEditModal = () => {
+    setEditModalIsOpen(false);
   };
 
-  const closeModal = () => {
-    setModalIsOpen(false);
+  const closeDeleteModal = () => {
+    setDeleteModalIsOpen(false);
   };
 
   const handleDelete = async () => {
@@ -29,13 +31,13 @@ export default function Contact({ item }) {
     } catch (error) {
       toast.error('Failed to delete contact');
     } finally {
-      closeModal();
+      closeDeleteModal();
     }
   };
 
   return (
     <>
-      <div>
+      <div className={css.info}>
         <p className={css.text}>
           <FaUser className={css.icon} />
           {item.name}
@@ -44,39 +46,27 @@ export default function Contact({ item }) {
           <FaPhone className={css.icon} /> {item.number}
         </p>
       </div>
-      <button className={css.btn} onClick={openModal}>
-        Delete
-      </button>
+      <div className={css.actions}>
+        <button className={css.btn} onClick={() => setEditModalIsOpen(true)}>
+          ✏️ Edit
+        </button>
+        <button className={css.btn} onClick={() => setDeleteModalIsOpen(true)}>
+          🗑️ Delete
+        </button>
+      </div>
 
-      <BaseModal isOpen={modalIsOpen} onClose={closeModal}>
+      <BaseModal isOpen={deleteModalIsOpen} onClose={closeDeleteModal}>
         <ConfirmModalContent
           text={'Are you sure you want to delete this contact?'}
           handleConfirm={handleDelete}
-          handleCancel={closeModal}
+          handleCancel={closeDeleteModal}
           isLoading={isLoading}
         />
       </BaseModal>
+
+      <BaseModal isOpen={editModalIsOpen} onClose={closeEditModal}>
+        <EditModalContent item={item} closeModal={closeEditModal} />
+      </BaseModal>
     </>
   );
-}
-{
-  /* <p className={css.text}>
-          Are you sure you want to delete this contact?
-        </p>
-        <div className={css.buttons}>
-          <button
-            className={`${css.btn} ${css.confirm}`}
-            type="button"
-            onClick={handleDelete}
-          >
-            Confirm
-          </button>
-          <button
-            className={`${css.btn} ${css.cancel}`}
-            type="button"
-            onClick={closeModal}
-          >
-            Cancel
-          </button>
-        </div> */
 }

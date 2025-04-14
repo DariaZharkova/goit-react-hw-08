@@ -14,7 +14,8 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
 
     padding: '24px 32px',
-    width: '320px',
+    width: '400px',
+    maxWidth: '90vw',
     borderRadius: '10px',
   },
 };

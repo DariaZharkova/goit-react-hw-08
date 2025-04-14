@@ -27,10 +27,11 @@
 .item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   border: var(--border);
   border-radius: 5px;
-  padding: 4px 8px;
+  padding: 8px 12px;
   box-shadow: var(--shadow);
 }
 

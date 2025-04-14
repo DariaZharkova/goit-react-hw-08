@@ -8,6 +8,7 @@ export default function BaseForm({
   fields,
   isLoading = false,
   buttonText,
+  children,
 }) {
   return (
     <Formik
@@ -27,9 +28,13 @@ export default function BaseForm({
           </div>
         ))}
 
-        <button className={css.btn} type="submit" disabled={isLoading}>
-          {buttonText}
-        </button>
+        {children ? (
+          children
+        ) : (
+          <button className={css.btn} type="submit" disabled={isLoading}>
+            {buttonText}
+          </button>
+        )}
       </Form>
     </Formik>
   );

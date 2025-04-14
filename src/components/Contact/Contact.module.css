@@ -1,3 +1,9 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .text {
   margin-bottom: 4px;
 }
@@ -6,6 +12,7 @@
   margin-right: 4px;
 }
 
-.btn {
-  margin-left: auto;
+.actions {
+  display: flex;
+  gap: 8px;
 }
