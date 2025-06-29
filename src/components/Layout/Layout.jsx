@@ -4,7 +4,6 @@ import { Toaster } from 'react-hot-toast';
 import { selectTheme } from '../../redux/theme/selectors';
 import AppBar from '../AppBar/AppBar';
 import AppFooter from '../AppFooter/AppFooter';
-// import ConfirmModal from '../ConfirmModal/ConfirmModal';
 import css from './Layout.module.css';
 
 export default function Layout({ children }) {
@@ -15,7 +14,6 @@ export default function Layout({ children }) {
       <AppBar />
       <Suspense fallback={null}>{children}</Suspense>
       <AppFooter />
-      {/* <ConfirmModal /> */}
       <Toaster position="top-center" />
     </div>
   );
